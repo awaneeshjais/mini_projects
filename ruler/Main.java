@@ -7,48 +7,48 @@ class Draw extends JPanel {
     @Override
     public void paint(Graphics g) {
         Graphics graphics = (Graphics) g;
-        int screensizewidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-        int screensizeheight = Toolkit.getDefaultToolkit().getScreenSize().height;
+        int screenSizeWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int screenSizeHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
         graphics.drawString("ScreenSize : "
-                + screensizewidth
+                + screenSizeWidth
                 + " X "
-                + screensizeheight, 30, 60);
+                + screenSizeHeight, 30, 60);
         graphics.drawString("WindowSize : "
                 + (getSize().width + 10)
                 + " X "
                 + (getSize().height + 32), 30, 80);
 
-        int x_begin = 5;
-        int y_begin = 5;
+        int xBegin = 5;
+        int yBegin = 5;
         // H O R I Z O N T A L
-        for (int i=0;i<screensizewidth;i=i+5){//small line
-            graphics.drawLine(x_begin + i, y_begin, x_begin + i, 10);
+        for (int i=0;i<screenSizeWidth;i=i+5){//small line
+            graphics.drawLine(xBegin + i, yBegin, xBegin + i, 10);
         }
-        for (int i=50;i<=screensizewidth;i=i+100){//middle line
-            graphics.drawLine(x_begin + i, y_begin, x_begin + i, 20);
+        for (int i=50;i<=screenSizeWidth;i=i+100){//middle line
+            graphics.drawLine(xBegin + i, yBegin, xBegin + i, 20);
         }
-        for (int i=0;i<=screensizewidth;i=i+100){//big line
-            graphics.drawLine(x_begin + i, y_begin, x_begin + i, 30);
+        for (int i=0;i<=screenSizeWidth;i=i+100){//big line
+            graphics.drawLine(xBegin + i, yBegin, xBegin + i, 30);
         }
         int counteri = 100;
-        for (int i=100;i<=screensizewidth;i=i+100){//big number
-            graphics.drawString(String.valueOf((counteri)) + " px", x_begin + i, y_begin + 40);
+        for (int i=100;i<=screenSizeWidth;i=i+100){//big number
+            graphics.drawString(String.valueOf((counteri)) + " px", xBegin + i, yBegin + 40);
             counteri = counteri + 100;
         }
 
         // V E R T I C A L
-        for (int i=0;i<screensizeheight;i=i+5){//small line
-            graphics.drawLine(x_begin, y_begin + i, 10, y_begin + i);
+        for (int i=0;i<screenSizeHeight;i=i+5){//small line
+            graphics.drawLine(xBegin, yBegin + i, 10, yBegin + i);
         }
-        for (int i=50;i<=screensizeheight;i=i+100){//middle line
-            graphics.drawLine(x_begin, y_begin + i, 20, y_begin + i);
+        for (int i=50;i<=screenSizeHeight;i=i+100){//middle line
+            graphics.drawLine(xBegin, yBegin + i, 20, yBegin + i);
         }
-        for (int i=0;i<=screensizeheight;i=i+100){//big line
-            graphics.drawLine(x_begin, y_begin + i, 30, y_begin + i);
+        for (int i=0;i<=screenSizeHeight;i=i+100){//big line
+            graphics.drawLine(xBegin, yBegin + i, 30, yBegin + i);
         }
         int counterj = 100;
-        for (int i=100;i<=screensizeheight;i=i+100){//big number
-            graphics.drawString(String.valueOf((counterj)) + " px",x_begin + 30, y_begin + i + 5);
+        for (int i=100;i<=screenSizeHeight;i=i+100){//big number
+            graphics.drawString(String.valueOf((counterj)) + " px",xBegin + 30, yBegin + i + 5);
             counterj = counterj + 100;
         }
     }
