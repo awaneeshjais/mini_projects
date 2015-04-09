@@ -5,12 +5,8 @@ public class Main {
 	public int counterSeparator (String line, String separator){//count separator into line
 		int count = 0;
 		int i = 0;
-		while (i < line.length()) {
-			if (separator.equals(line.substring(i, i + 1))) {
-				count++;
-			} else {
-			}
-			i++;
+		for (i = 0; i < line.length(); i++){
+			if (separator.equals(line.substring(i, i + 1))) {count++;}
 		}
 		return count;
 	}
@@ -19,12 +15,11 @@ public class Main {
 		int[] arrPositionSep = new int[count];
 		int i = 0;
 		int s = 0;
-		while (i<line.length()){
+		for (i = 0; i < line.length(); i++){
 			if (separator.equals(line.substring(i,i+1))){
 				arrPositionSep[s] = i;
 				s++;
-			}else{}
-			i++;
+			}
 		}
 		return arrPositionSep;
 	}
