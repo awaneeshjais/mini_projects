@@ -5,7 +5,7 @@
 ### figures
 
 ENG
-Fail version Factory Pattern.)
+   Fail version Factory Pattern.)
 
 RUS
 Не удавшаяся версия Factory Pattern.)
