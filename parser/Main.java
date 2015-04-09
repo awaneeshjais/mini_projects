@@ -1,3 +1,4 @@
+package testo;
 import java.io.*;
 
 public class Main {
@@ -16,67 +17,67 @@ public class Main {
 	}
 	
 	public int[] arrPositionSep(String line, String separator, int count){//add in array position separator from line
-		int[] arrpositionsep = new int[count];
+		int[] arrPositionSep = new int[count];
 		int i = 0;
 		int s = 0;
 		while (i<line.length()){
 			if (separator.equals(line.substring(i,i+1))){
-				arrpositionsep[s] = i;
+				arrPositionSep[s] = i;
 				s++;
 			}else{}
 			i++;
 		}
-		return arrpositionsep;
+		return arrPositionSep;
 	}
 	
-	public String[] arrField(String line, String field, int count, int [] arrpos){//create fields - 3 symbols after separator
-		String[] arrfield = new String[count];
+	public String[] arrField(String line, String field, int count, int [] arrPos){//create fields - 3 symbols after separator
+		String[] arrField = new String[count];
 		for(int i = 0; i < count; i++){
-			arrfield[i] = field + line.substring(arrpos[i]+1,arrpos[i]+4);
+			arrField[i] = field + line.substring(arrPos[i]+1,arrPos[i]+4);
 		}
-		return arrfield;
+		return arrField;
 	}
 	
-	public String[] arrValue(String line, String separator, int count, int []arrpos){//create value - from 4th symbols after separator to next separator
-		String[] arrvalue = new String[count];
-		for(int i = 0; i < arrvalue.length-1; i++){
-			arrvalue[i] = line.substring(arrpos[i]+4,arrpos[i+1]);
+	public String[] arrValue(String line, String separator, int count, int []arrPos){//create value - from 4th symbols after separator to next separator
+		String[] arrValue = new String[count];
+		for(int i = 0; i < arrValue.length-1; i++){
+			arrValue[i] = line.substring(arrPos[i]+4,arrPos[i+1]);
 		}
-		arrvalue[count-1] = line.substring(arrpos[count-1]+4, line.length());
-		return arrvalue;
+		arrValue[count-1] = line.substring(arrPos[count-1]+4, line.length());
+		return arrValue;
 	}
 	
-	public String sequenceField(String[] arrfield){//create string fields for insert
-		String stringfield = "";
-		for (int i = 0; i<arrfield.length;i++){
-			stringfield = stringfield + arrfield[i] + ", ";
+	public String sequenceField(String[] arrField){//create string fields for insert
+		String stringField = "";
+		for (int i = 0; i<arrField.length;i++){
+			stringField = stringField + arrField[i] + ", ";
 		}		
-		stringfield = stringfield.substring(0,stringfield.length()-2);
-		return stringfield;
+		stringField = stringField.substring(0,stringField.length()-2);
+		return stringField;
 	}
 	
-	public String sequenceValue(String[] arrvalue){//create string values for insert
-		String stringvalue = "";
-		for (int i = 0; i<arrvalue.length;i++){
-			stringvalue = stringvalue + "'" + arrvalue[i] + "', ";
+	public String sequenceValue(String[] arrValue){//create string values for insert
+		String stringValue = "";
+		for (int i = 0; i<arrValue.length;i++){
+			stringValue = stringValue + "'" + arrValue[i] + "', ";
 		}		
-		stringvalue = stringvalue.substring(0,stringvalue.length()-2);
-		return stringvalue;
+		stringValue = stringValue.substring(0,stringValue.length()-2);
+		return stringValue;
 	}
 	
-	public String resultLine (String arrf, String arrv, String nameDB){//create insert
-		String outline = "";
-		outline = "INSERT INTO " + nameDB + "(" + arrf + ") VALUES (" + arrv + ");";
-		return outline;
+	public String resultLine (String arrF, String arrV, String nameDB){//create insert
+		String outLine = "";
+		outLine = "INSERT INTO " + nameDB + "(" + arrF + ") VALUES (" + arrV + ");";
+		return outLine;
 	}
 	
 	public String exportLine (String line, String separator, String field, String sqlNameTable){//combo export line to insertString
 		int out = 0;
 		out = counterSeparator(line,separator);
 		int [] arrp = arrPositionSep(line, separator, out);
-		String[] arrf = arrField(line, field, out, arrp);
-		String[] arrv = arrValue(line, field, out, arrp);
-		return resultLine(sequenceField(arrf), sequenceValue(arrv) ,sqlNameTable);
+		String[] arrF = arrField(line, field, out, arrp);
+		String[] arrV = arrValue(line, field, out, arrp);
+		return resultLine(sequenceField(arrF), sequenceValue(arrV) ,sqlNameTable);
 	}
 	
 	
@@ -88,10 +89,10 @@ public class Main {
 		String separator = "/";
 		String field = "c";
 		String sqlNameTable = "test";
-		String filename = "test.txt";
+		String fileName = "test.txt";
 		
-		File fileIn = new File("d:\\" + filename);
-		File fileOut = new File("d:\\" + filename + ".sql");
+		File fileIn = new File("d:\\" + fileName);
+		File fileOut = new File("d:\\" + fileName + ".sql");
 		try {
 			fileOut.createNewFile();
 			BufferedReader reader = new BufferedReader(new FileReader(fileIn));
