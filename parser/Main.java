@@ -1,4 +1,3 @@
-package testo;
 import java.io.*;
 
 public class Main {
