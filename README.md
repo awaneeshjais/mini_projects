@@ -2,7 +2,7 @@
 
 
 
-## figures
+## 1. figures
 
 **ENG**
 
@@ -14,7 +14,7 @@ Fail version Factory Pattern.)
 
 
 ***
-## parser
+## 2. parser
 
 **ENG**
 
@@ -81,7 +81,7 @@ Result in the output file:
 
 
 ***
-## ruler
+## 3. ruler
 
 **ENG**
 
