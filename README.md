@@ -1,22 +1,22 @@
-## Here are the my little projects on JAVA.
+# Here are the my little projects on JAVA.
 
 
 
-### figures
+## figures
 
-ENG
+**ENG**
 
 Fail version Factory Pattern.)
 
-RUS
+**RUS**
 
 Не удавшаяся версия Factory Pattern.)
 
 
 ***
-### parser
+## parser
 
-ENG
+**ENG**
 
 Small parsing text information.
 
@@ -36,13 +36,18 @@ Part of the text input file:
 Result in the output file:
 
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '32543513', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '3213543513', '4321421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '33541', '3213543513', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '321313', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '321313', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('313', '3213541', '3213543513', '43AELIRFVBAFD');
 
-RUS
+**RUS**
 
 Небольшой парсинг текстовой информации.
 
@@ -62,24 +67,29 @@ RUS
 Результат в выходном файле:
 
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '32543513', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '3213543513', '4321421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '33541', '3213543513', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '321313', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('3213513', '3213541', '321313', '432135421');
+
 >INSERT INTO test (c001, c002, c003, c004) VALUES ('313', '3213541', '3213543513', '43AELIRFVBAFD');
 
 
 
 ***
-### ruler
+## ruler
 
-ENG
+**ENG**
 
 This app is an e-line screen/monitor.
 
 It can calculate the approximate number of pixels.
 
-RUS
+**RUS**
 
 Это приложение являет собою электронную линейку для экрана/монитора.
 
