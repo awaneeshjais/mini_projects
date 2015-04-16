@@ -1,4 +1,4 @@
-# Here are the my little projects.
+# Here are my little projects.
 
 |N|Name of projects|Language|Option of using|Status|
 | --- | --- | --- | --- | --- |
