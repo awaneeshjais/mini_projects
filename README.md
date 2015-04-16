@@ -1,24 +1,43 @@
 # Here are my little projects.
 
-|N|Name of projects|Language|Option of using|Status|
-| --- | --- | --- | --- | --- |
-|1.|bioModel|PHP|web|finished|
-|2.|figures|Java|console|in action|
-|3.|parser|Java|console|finished|
-|4.|ruler|Java|desctop|finished|
-|5.|scripts|VBA|*.xls|finished|
-|6.|tableBradis|Java|andriod|in action|
-|7.|ticketOffice|Java|web|in action|
+|N|Name of projects|Language|Option of using|Status|Description|
+| --- | --- | --- | --- | --- | --- |
+|1.|bioModel|PHP|web|finished|+|
+|2.|figures|Java|console|in action|+|
+|3.|parser|Java|console|finished|+|
+|4.|ruler|Java|desctop|finished|+|
+|5.|scripts|VBA|*.xls|finished|-|
+|6.|tableBradis|Java|andriod|in action|-|
+|7.|ticketOffice|Java|web|in action|-|
 
+***
+## 1. bioModel
+
+**ENG**
+
+The biological model of wolf island.
+
+A detailed description can be found in the files Scan-121113-0001.jpg and Scan-121113-0002.jpg
+
+**RUS**
+
+Биологическая модель волчьего острова.
+
+Подробное описание в файлах Scan-121113-0001.jpg и Scan-121113-0002.jpg
+
+
+
+***
 ## 2. figures
 
 **ENG**
 
-Fail version Factory Pattern.)
+Fail version Factory Pattern.) 
 
 **RUS**
 
 Не удавшаяся версия Factory Pattern.)
+
 
 
 ***
