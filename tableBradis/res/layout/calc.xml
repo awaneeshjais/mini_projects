@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:background="@color/Page_background" android:weightSum="1">
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_zero"
+            android:id="@+id/calc_textView" android:layout_margin="5dp" android:background="@color/Button_text"
+            android:digits=".0123456789" android:gravity="right" android:padding="5dp" android:singleLine="true"
+            android:textAllCaps="false" android:textColor="@color/Entered_text" android:textAlignment="gravity"
+            android:textSize="22dp" android:textStyle="bold"/>
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView" android:layout_margin="3dp">
+        <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" android:layout_margin="5dp" android:id="@+id/LinearLayout1">
+                <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:text="@string/label_one"
+                        android:id="@+id/calc_button_one" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_two"
+                        android:id="@+id/calc_button_two" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_three"
+                        android:id="@+id/calc_button_three" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_plus"
+                        android:id="@+id/calc_button_plus" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_one_to_x"
+                        android:id="@+id/calc_button_one_to_x" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_margin="5dp"
+                          android:id="@+id/LinearLayout2">
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_four"
+                        android:id="@+id/calc_button_four" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_five"
+                        android:id="@+id/calc_button_five" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_six"
+                        android:id="@+id/calc_button_six" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_minus"
+                        android:id="@+id/calc_button_minus" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_x_2"
+                        android:id="@+id/calc_button_x_2" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_margin="5dp"
+                          android:id="@+id/LinearLayout3">
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_seven"
+                        android:id="@+id/calc_button_seven" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_eight"
+                        android:id="@+id/calc_button_eight" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_nine"
+                        android:id="@+id/calc_button_nine" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_multi"
+                        android:id="@+id/calc_button_multi" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_x_3"
+                        android:id="@+id/calc_button_x_3" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_margin="5dp"
+                          android:id="@+id/LinearLayout4">
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_clear"
+                        android:id="@+id/calc_button_clear" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_zero"
+                        android:id="@+id/calc_button_zero" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_dot"
+                        android:id="@+id/calc_button_dot" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_dev"
+                        android:id="@+id/calc_button_dev" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_length"
+                        android:id="@+id/calc_button_length" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_margin="5dp"
+                          android:id="@+id/LinearLayout5">
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_clear_all"
+                        android:id="@+id/calc_button_clear_all" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_result"
+                        android:id="@+id/calc_button_result" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="2.5"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_area"
+                        android:id="@+id/calc_button_area" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_margin="5dp"
+                          android:id="@+id/LinearLayout6">
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_sin"
+                        android:id="@+id/calc_button_sin" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_cos"
+                        android:id="@+id/calc_button_cos" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_tg"
+                        android:id="@+id/calc_button_tg" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_ctg"
+                        android:id="@+id/calc_button_ctg" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+                <Button android:layout_width="50dp" android:layout_height="50dp" android:text="@string/label_round4"
+                        android:id="@+id/calc_button_round4" android:textColor="@color/Button_text"
+                        android:background="@drawable/button" android:enabled="true" android:clickable="true"
+                        android:layout_margin="5dp" android:layout_weight="0.2"/>
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

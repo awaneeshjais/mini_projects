@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="connectionDB">
+    <class name="Users" table="Users">
+       <id name="id">
+        <!--<generator class="sequence"><param name="sequence">id_seq</param></generator>-->
+        <generator class="native"/>
+       </id>
+<property name="udln" column="udln"/>
+<property name="login" column="login"/>        
+<property name="pass" column="pass"/>
+<property name="mail" column="mail"/>
+<property name="telephone" column="telephone"/>
+    </class>
+</hibernate-mapping>

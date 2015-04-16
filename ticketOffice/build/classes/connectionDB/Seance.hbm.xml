@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="connectionDB">
+    <class name="Seance" table="Seance">
+       <id name="id">
+        <!--<generator class="sequence"><param name="sequence">id_seq</param></generator>-->
+        <generator class="native"/>
+       </id>
+<property name="udln" column="udln"/>
+<property name="country" column="country"/>        
+<property name="town" column="town"/>
+<property name="theatre" column="theatre"/>
+<property name="cinema_hall" column="cinema_hall"/>
+<property name="date_seance" column="date_seance"/>
+<property name="time_seance" column="time_seance"/>
+<property name="film_name" column="film_name"/>
+<property name="number_chair" column="number_chair"/>
+<property name="cost_chair" column="cost_chair"/>
+    </class>
+</hibernate-mapping>
