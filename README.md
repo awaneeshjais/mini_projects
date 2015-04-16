@@ -1,14 +1,14 @@
-# Here are the my little projects on JAVA.
+# Here are the my little projects.
 
-|N|Name of projects|Language|Option of using|
-| --- | --- | --- | --- |
-|1.|bioModel|PHP|web|
-|2.|figures|Java|console|
-|3.|parser|Java|console|
-|4.|ruler|Java|desctop|
-|5.|scripts|VBA|*.xls|
-|6.|tableBradis|Java|andriod|
-|7.|ticketOffice|Java|web|
+|N|Name of projects|Language|Option of using|Status|
+| --- | --- | --- | --- | --- |
+|1.|bioModel|PHP|web|finished|
+|2.|figures|Java|console|in action|
+|3.|parser|Java|console|finished|
+|4.|ruler|Java|desctop|finished|
+|5.|scripts|VBA|*.xls|finished|
+|6.|tableBradis|Java|andriod|in action|
+|7.|ticketOffice|Java|web|in action|
 
 ## 2. figures
 
