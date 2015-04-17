@@ -7,8 +7,8 @@
 |3.|parser|Java|console|finished|+|
 |4.|ruler|Java|desktop|finished|+|
 |5.|scripts|VBA|*.xls|finished|+|
-|6.|tableBradis|Java|andriod|in action|-|
-|7.|ticketOffice|Java|web|in action|-|
+|6.|tableBradis|Java|andriod|in action|+|
+|7.|ticketOffice|Java|web|in action|+|
 
 
 
@@ -127,7 +127,7 @@ It can calculate the approximate number of pixels.
 
 
 ***
-## 5. figures
+## 5. scripts
 
 **ENG**
 
@@ -139,6 +139,28 @@ Several scripts for data processing.)
 
 
 
+***
+## 6. tableBradis
 
+**ENG**
+
+Android-apps: calculator with function tables Bradis and history calculate.
+
+**RUS**
+
+Android-приложение: фактически калькулятор с функциями таблиц Брадиса и историей вычислений.
+
+
+
+***
+## 7. ticketOffice
+
+**ENG**
+
+Web-apps: online-ticketWindow for network cinemas.
+
+**RUS**
+
+Web-приложение: онлайн-касса для сети кинотеатров.
 
 [Help for me.)](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
