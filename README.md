@@ -1,14 +1,14 @@
 # Here are my little projects.
 
-|N|Name of projects|Language|Option of using|Status|Description|
-| --- | --- | --- | --- | --- | --- |
-|1.|bioModel|PHP|web|finished|+|
-|2.|figures|Java|console|finished|+|
-|3.|parser|Java|console|finished|+|
-|4.|ruler|Java|desktop|finished|+|
-|5.|scripts|VBA|*.xls|finished|+|
-|6.|tableBradis|Java|andriod|in action|+|
-|7.|ticketOffice|Java|web|in action|+|
+|N|Name of projects|Language|Option of using|Status|
+| --- | --- | --- | --- | --- |
+|1.|bioModel|PHP|web|finished|
+|2.|figures|Java|console|finished|
+|3.|parser|Java|console|finished|
+|4.|ruler|Java|desktop|finished|
+|5.|scripts|VBA|*.xls|finished|
+|6.|tableBradis|Java|andriod|in action|
+|7.|ticketOffice|Java|web|in action|
 
 
 
