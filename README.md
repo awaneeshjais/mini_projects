@@ -7,7 +7,7 @@
 |3.|parser|Java|console|finished|
 |4.|ruler|Java|desktop|finished|
 |5.|scripts|VBA|*.xls|finished|
-|6.|tableBradis|Java|andriod|in action|
+|6.|tableBradis|Java|andriod|finished|
 |7.|ticketOffice|Java|web|in action|
 
 
