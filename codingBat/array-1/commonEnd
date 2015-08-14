@@ -1,0 +1,8 @@
+public boolean commonEnd(int[] a, int[] b) {
+  int la = a.length;
+  int lb = b.length;
+  
+  if (a[0]==b[0] || a[la-1]==b[lb-1]){return true;
+  }else{return false;
+  }
+}

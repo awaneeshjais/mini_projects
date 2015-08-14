@@ -1,0 +1,5 @@
+public boolean loneTeen(int a, int b) {
+if ((a>12&&a<20)&&(b>12&&b<20)) return false;
+else if (a==b) return false;
+else return((a>12&&a<20)||(b>12&&b<20));
+}

@@ -1,0 +1,7 @@
+public int[] reverse3(int[] nums) {
+  int l1 = nums[0];
+  int l3 = nums[2];
+  nums[0] = l3;
+  nums[2] = l1;
+  return nums;
+}

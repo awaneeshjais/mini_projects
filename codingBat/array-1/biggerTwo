@@ -1,0 +1,6 @@
+public int[] biggerTwo(int[] a, int[] b) {
+  int aa = a[0] + a[1];
+int bb = b[0] + b[1];
+if (aa >= bb) {return a;
+}else {return b;} 
+}

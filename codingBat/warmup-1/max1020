@@ -1,0 +1,9 @@
+public int max1020(int a, int b) {
+  boolean aa = (a >= 10 && a <= 20) ? true : false;
+  boolean bb = (b >= 10 && b <= 20) ? true : false; 
+  if (a > b && aa == true && bb == true) { return a;
+  }else if (aa == true && bb == false) { return a;
+  }else if (a < b && aa == true && bb == true) { return b;
+  }else if (aa == false && bb == true) { return b;
+  }else {return 0;}
+}

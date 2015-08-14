@@ -1,0 +1,14 @@
+public int[] makeEnds(int[] nums) {
+  int l = nums.length;
+  
+  if (l==1) {
+  int a1 = nums[0];
+  int[] arr = {a1,a1};
+  return arr;
+  }else{
+  int a1 = nums[0];
+  int al = nums[l-1];
+  int[] arr = {a1,al};
+  return arr;
+  }
+}

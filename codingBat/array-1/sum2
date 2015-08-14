@@ -1,0 +1,8 @@
+public int sum2(int[] nums) {
+  int l = nums.length;
+  if (l == 0){ return 0;
+  }else if (l==1){return nums[0];
+  }else{
+return nums[0] + nums[1];  
+  }
+}

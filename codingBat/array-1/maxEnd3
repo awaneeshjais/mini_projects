@@ -1,0 +1,17 @@
+public int[] maxEnd3(int[] nums) {
+  int arr1 = nums[0];
+  int arr3 = nums[2];
+if (arr1 > arr3)
+{
+nums[0] = arr1;
+nums[1] = arr1;
+nums[2] = arr1;
+}else
+{
+nums[0] = arr3;
+nums[1] = arr3;
+nums[2] = arr3;
+
+}
+  return nums;
+}

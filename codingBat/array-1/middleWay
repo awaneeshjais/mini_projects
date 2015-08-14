@@ -1,0 +1,6 @@
+public int[] middleWay(int[] a, int[] b) {
+int a1 = a[1];
+int a2 = b[1];
+  int[] midd = {a1,a2};
+  return midd;
+}

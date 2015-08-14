@@ -1,0 +1,9 @@
+public String frontBack(String str) {
+if (str.length()<2){return str;}
+else{
+  String f = str.substring(0,1);
+  String l = str.substring(str.length()-1,str.length());
+  String loop = str.substring(1,str.length()-1);
+  return l+loop+f;
+  }
+}

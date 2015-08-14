@@ -1,0 +1,9 @@
+public int[] rotateLeft3(int[] nums) {
+  int l1 = nums[0];
+  int l2 = nums[1];
+  int l3 = nums[2];
+  nums[0] = l2;
+  nums[1] = l3;
+  nums[2] = l1;
+  return nums;
+}

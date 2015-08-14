@@ -1,0 +1,11 @@
+public boolean in3050(int a, int b) {
+  int m30 = 30;
+  int m40 = 40;
+  int m50 = 50;
+  int summ = a + b;
+  int abs = Math.abs(b-a);
+  
+  if (a >= m30 && a <=m40 && b >= m30 && b <=m40 ) {return true;
+  }else if (a >= m40 && a <=m50 && b >= m40 && b <=m50 ) {return true;
+  }else return false;
+}

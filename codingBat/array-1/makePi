@@ -1,0 +1,8 @@
+public int[] makePi() {
+          String pi = new Double(Math.PI).toString();
+        int[] ar = new int[3];
+        ar[0] = Integer.parseInt(pi.substring(0,1));
+        ar[1] = Integer.parseInt(pi.substring(2,3));
+        ar[2] = Integer.parseInt(pi.substring(3,4));
+        return ar;
+}

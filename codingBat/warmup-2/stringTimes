@@ -1,0 +1,7 @@
+public String stringTimes(String str, int n) {
+String s = "";
+  for (int i = 1; i<=n; i++){
+  s = s + str;
+  }
+  return s;
+}

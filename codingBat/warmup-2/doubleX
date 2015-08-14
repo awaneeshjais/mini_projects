@@ -1,0 +1,8 @@
+boolean doubleX(String str) {
+int first = str.indexOf("x");
+  if (first+1==str.indexOf("x",first+1)){
+  return true;
+  }else {
+  return false;
+  }
+}

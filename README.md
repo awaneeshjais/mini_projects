@@ -3,12 +3,13 @@
 |N|Name of projects|Language|Option of using|Status|
 | --- | --- | --- | --- | --- |
 |1.|bioModel|PHP|web|finished|
-|2.|figures|Java|console|finished|
-|3.|parser|Java|console|finished|
-|4.|ruler|Java|desktop|finished|
-|5.|scripts|VBA|*.xls|finished|
-|6.|tableBradis|Java|andriod|finished|
-|7.|ticketOffice|Java|web|in action|
+|2.|codingBat|Java|console|in action|
+|3.|figures|Java|console|finished|
+|4.|parser|Java|console|finished|
+|5.|ruler|Java|desktop|finished|
+|6.|scripts|VBA|*.xls|finished|
+|7.|tableBradis|Java|andriod|finished|
+|8.|ticketOffice|Java|web|in action|
 
 
 
@@ -30,7 +31,24 @@ A detailed description can be found in the files Scan-121113-0001.jpg and Scan-1
 
 
 ***
-## 2. figures
+## 2. codingBat
+
+**ENG**
+
+This part is a decision tasks for [codingbat.com] (http://codingbat.com/java) in section Java.
+
+It's only my opinion & my view.
+
+**RUS**
+
+Этот раздел репозитория примеры решений задач для ресурса [codingbat.com] (http://codingbat.com/java).
+
+Исключительно личный опыт.
+
+
+
+***
+## 3. figures
 
 **ENG**
 
@@ -43,7 +61,7 @@ Fail version Factory Pattern.)
 
 
 ***
-## 3. parser
+## 4. parser
 
 **ENG**
 
@@ -110,7 +128,7 @@ Result in the output file:
 
 
 ***
-## 4. ruler
+## 5. ruler
 
 **ENG**
 
@@ -127,7 +145,7 @@ It can calculate the approximate number of pixels.
 
 
 ***
-## 5. scripts
+## 6. scripts
 
 **ENG**
 
@@ -140,7 +158,7 @@ Several scripts for data processing.)
 
 
 ***
-## 6. tableBradis
+## 7. tableBradis
 
 **ENG**
 
@@ -153,7 +171,7 @@ Android-приложение: фактически калькулятор с ф�
 
 
 ***
-## 7. ticketOffice
+## 8. ticketOffice
 
 **ENG**
 

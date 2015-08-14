@@ -1,0 +1,9 @@
+public int[] fix23(int[] nums) {
+      if ((nums[1]-nums[0])==1 && nums[0]==2){
+      nums[1] = 0;
+      return nums;
+      }else if((nums[2]-nums[1])==1 &&nums[1]==2){
+      nums[2] = 0;
+      return nums;
+      }else{return nums;}
+}

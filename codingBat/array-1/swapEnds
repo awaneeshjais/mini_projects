@@ -1,0 +1,9 @@
+public int[] swapEnds(int[] nums) {
+  
+int l = nums.length;
+int la = nums[0];
+int lb = nums[l-1];
+nums[0] = lb;
+nums[l-1] = la;
+return nums;
+}

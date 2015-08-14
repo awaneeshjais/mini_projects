@@ -1,0 +1,13 @@
+public int[] make2(int[] a, int[] b) {
+  int[] narr = new int[2];
+  if (a.length>1){
+    narr=Arrays.copyOf(a, 2);
+  }else if (a.length==1){
+narr[0] = a[0];
+narr[1] = b[0];
+}else {
+narr[0] = b[0];
+narr[1] = b[1];
+}
+return narr;
+}

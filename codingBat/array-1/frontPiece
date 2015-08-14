@@ -1,0 +1,11 @@
+public int[] frontPiece(int[] nums) {
+int [] t = null;
+if (nums.length==1 || nums.length==2) {
+        t = nums.clone();
+}else if (nums.length>2){
+t = Arrays.copyOf(nums, 2);
+}else {
+t = nums.clone();
+}
+return t;  
+}
