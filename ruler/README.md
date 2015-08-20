@@ -1,4 +1,4 @@
-## 5. ruler
+## Ruler
 
 **ENG**
 
