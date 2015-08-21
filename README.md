@@ -9,7 +9,8 @@
 |5.|ruler|Java|desktop|finished|
 |6.|scripts|VBA|*.xls|finished|
 |7.|tableBradis|Java|andriod|finished|
-|8.|ticketOffice|Java|web|in action|
+|8.|testAndroid_e-legion.ru|Java|console|finished|
+|9.|ticketOffice|Java|web|in action|
 
 
 
@@ -171,7 +172,20 @@ Android-приложение: фактически калькулятор с ф�
 
 
 ***
-## 8. ticketOffice
+## 8. testAndroid_e-legion.ru
+
+**ENG**
+
+Console-apps: count area of overlapping rectangles (two opposite coordinates of corners). Detailed test conditions in the file 2015-android_school.pdf.
+
+**RUS**
+
+Консольное приложение: подсчитывает площадь фигуры из перекрывающихся прямоугольников (заданы два противоположных угла). Детальные условия теста в файле 2015-android_school.pdf.
+
+
+
+***
+## 9. ticketOffice
 
 **ENG**
 
