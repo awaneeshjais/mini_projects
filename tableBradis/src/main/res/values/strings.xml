@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Таблицы Брадиса</string>
+    <string name="ic_launcher">ic_launcher</string>
+    <string name="menu_calc">Калькулятор Брадиса</string>
+    <string name="menu_history">История расcчетов</string>
+    <string name="menu_bradis">О Брадисе</string>
+    <string name="link_bradis">https://ru.wikipedia.org/wiki/%D0%91%D1%80%D0%B0%D0%B4%D0%B8%D1%81,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9C%D0%BE%D0%B4%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%B8%D1%87</string>
+    <string name="menu_history_delete_history">Очистить историю</string>
+
+    <string name="label_plus">+</string>
+    <string name="label_minus">&#8212;</string>
+    <string name="label_multi">*</string>
+    <string name="label_dev">/</string>
+    <string name="label_clear">C</string>
+    <string name="label_clear_all">CA</string>
+    <string name="label_result">=</string>
+
+    <string name="label_one_to_x">1/x</string>
+    <string name="label_x_2">x&#178;</string>
+    <string name="label_x_3">x&#179;</string>
+    <string name="label_length">L(d)</string>
+    <string name="label_area">S(d)</string>
+
+    <string name="label_sin">sin</string>
+    <string name="label_cos">cos</string>
+    <string name="label_tg">tg</string>
+    <string name="label_ctg">ctg</string>
+    <string name="label_round4">rnd4</string>
+
+    <string name="label_dot">.</string>
+    <string name="label_zero">0</string>
+    <string name="label_one">1</string>
+    <string name="label_two">2</string>
+    <string name="label_three">3</string>
+    <string name="label_four">4</string>
+    <string name="label_five">5</string>
+    <string name="label_six">6</string>
+    <string name="label_seven">7</string>
+    <string name="label_eight">8</string>
+    <string name="label_nine">9</string>
+
+    <string name="alert_name_button">OK</string>
+    <string name="alert_dot">Точка уже введена</string>
+    <string name="alert_clear">Поле ввода уже очищено</string>
+
+    <string name="alert_yes">Да</string>
+    <string name="alert_no">Нет</string>
+    <string name="alert_message">Важное сообщение!</string>
+    <string name="alert_do_you_real">Вы действительно хотите удалить историю?</string>
+
+</resources>

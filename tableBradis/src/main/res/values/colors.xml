@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="Skynet_theme"/>-->
+    <color name="Button_text">#0F1C28</color>
+    <color name="Button_background">#F8FCFD</color>
+    <color name="Entered_background">#3498DB</color>
+    <color name="Entered_text">#3498DB</color>
+    <color name="Page_background">#ECF0F1</color>
+</resources>
