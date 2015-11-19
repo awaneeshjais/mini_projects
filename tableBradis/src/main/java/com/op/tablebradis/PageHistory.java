@@ -14,30 +14,26 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.op.tablebradis.help.Cache;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-public class PageHistory extends Activity {
+public class PageHistory extends Activity{
+    Cache cache = new Cache();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history);
 
-        final TextView jc_history_text = (TextView) findViewById(R.id.history_textView);
-        final Button jc_history_button = (Button) findViewById(R.id.history_button_erase_history);
+        final TextView jcHistoryText = (TextView) findViewById(R.id.history_textView);
+        final Button jcHistoryButton = (Button) findViewById(R.id.history_button_erase_history);
         final Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
-        jc_history_text.setText(readCache());
+        jcHistoryText.setText(cache.readCache());
 
-        View.OnClickListener onClick_button_erase = new View.OnClickListener() {
+        jcHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
+            public void onClick(View v) {
+                v.startAnimation(alpha);
                 AlertDialog.Builder builder = new AlertDialog.Builder(PageHistory.this);
                 builder.setTitle(R.string.alert_message)
                         .setMessage(R.string.alert_do_you_real);
@@ -50,45 +46,14 @@ public class PageHistory extends Activity {
                 builder.setPositiveButton(R.string.alert_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                deleteCache();
-                                jc_history_text.setText(" ");
+                                cache.deleteCache();
+                                jcHistoryText.setText(" ");
                             }
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
             }
-        };
-        jc_history_button.setOnClickListener(onClick_button_erase);
-    }
-    public String readCache() {
-        List list = new ArrayList();
-        String str_cache = " ";
-        File cachefile = new File(getCacheDir(), "TBradis.cache");
-        try {
-            Scanner in = new Scanner(new FileReader(cachefile));
-            while (in.hasNextLine()) {
-                list.add(in.nextLine());
-            }
-            for (int i = 0; i<list.size();i++){
-                str_cache = list.get(i) + "\n" + str_cache;
-            }
-            in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-        }
-        return str_cache;
-    }
-    public void deleteCache(){
-        File cachefile = new File(getCacheDir(), "TBradis.cache");
-        try {
-            cachefile.delete();
-            cachefile.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        });
     }
 
     @Override
@@ -111,8 +76,7 @@ public class PageHistory extends Activity {
             startActivity(intent);
         } else if (item.getItemId() == R.id.action_menu_bradis){
             ret = true;
-            //Toast.makeText(this, "ABOUT BRADIS", Toast.LENGTH_SHORT).show();
-            Uri uri = Uri.parse("https://ru.wikipedia.org/wiki/%D0%91%D1%80%D0%B0%D0%B4%D0%B8%D1%81,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9C%D0%BE%D0%B4%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%B8%D1%87");
+            Uri uri = Uri.parse(String.valueOf(R.string.link_bradis));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
         } else {

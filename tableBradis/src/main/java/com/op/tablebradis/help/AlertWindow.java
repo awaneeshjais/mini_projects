@@ -1,9 +1,10 @@
-package com.op.tablebradis;
+package com.op.tablebradis.help;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import com.op.tablebradis.PageHistory;
+import com.op.tablebradis.R;
 
 public class AlertWindow {
     public void createAlertWindow(String message, String name_button, Activity activity) {

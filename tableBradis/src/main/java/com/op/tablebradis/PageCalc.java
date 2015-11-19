@@ -8,93 +8,129 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.op.tablebradis.help.Format;
 
-import java.io.*;
-import java.text.DecimalFormat;
-import java.util.Date;
+public class PageCalc extends Activity implements OnClickListener {
+    Animation alpha;
+    String[] jcCalcBuffer = {"","",""};
+    TextView textView;
+    View calc_button_one;
+    View calc_button_two;
+    View calc_button_three;
+    View calc_button_plus;
+    View calc_button_one_to_x;
 
-public class PageCalc extends Activity {
+    View calc_button_four;
+    View calc_button_five;
+    View calc_button_six;
+    View calc_button_minus;
+    View calc_button_x_2;
+
+    View calc_button_seven;
+    View calc_button_eight;
+    View calc_button_nine;
+    View calc_button_multi;
+    View calc_button_x_3;
+
+    View calc_button_clear;
+    View calc_button_zero;
+    View calc_button_dot;
+    View calc_button_dev;
+    View calc_button_length;
+
+    View calc_button_clear_all;
+    View calc_button_result;
+    View calc_button_area;
+
+    View calc_button_sin;
+    View calc_button_cos;
+    View calc_button_tg;
+    View calc_button_ctg;
+    View calc_button_round4;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calc);
+        alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        textView = (TextView) findViewById(R.id.calc_textView);
 
-        final TextView jc_calc_enter_text = (TextView) findViewById(R.id.calc_textView);
-        final String[] jc_calc_buffer = {"","",""};
-        final Button jc_calc_one = (Button) findViewById(R.id.calc_button_one);
-        final Button jc_calc_two = (Button) findViewById(R.id.calc_button_two);
-        final Button jc_calc_three = (Button) findViewById(R.id.calc_button_three);
-        final Button jc_calc_plus = (Button) findViewById(R.id.calc_button_plus);
-        final Button jc_calc_one_to_x = (Button) findViewById(R.id.calc_button_one_to_x);
+        calc_button_one = findViewById(R.id.calc_button_one);
+        calc_button_two = findViewById(R.id.calc_button_two);
+        calc_button_three = findViewById(R.id.calc_button_three);
+        calc_button_plus = findViewById(R.id.calc_button_plus);
+        calc_button_one_to_x = findViewById(R.id.calc_button_one_to_x);
 
-        final Button jc_calc_four = (Button) findViewById(R.id.calc_button_four);
-        final Button jc_calc_five = (Button) findViewById(R.id.calc_button_five);
-        final Button jc_calc_six = (Button) findViewById(R.id.calc_button_six);
-        final Button jc_calc_minus = (Button) findViewById(R.id.calc_button_minus);
-        final Button jc_calc_x_2 = (Button) findViewById(R.id.calc_button_x_2);
+        calc_button_four = findViewById(R.id.calc_button_four);
+        calc_button_five = findViewById(R.id.calc_button_five);
+        calc_button_six = findViewById(R.id.calc_button_six);
+        calc_button_minus = findViewById(R.id.calc_button_minus);
+        calc_button_x_2 = findViewById(R.id.calc_button_x_2);
 
-        final Button jc_calc_seven = (Button) findViewById(R.id.calc_button_seven);
-        final Button jc_calc_eight = (Button) findViewById(R.id.calc_button_eight);
-        final Button jc_calc_nine = (Button) findViewById(R.id.calc_button_nine);
-        final Button jc_calc_multi = (Button) findViewById(R.id.calc_button_multi);
-        final Button jc_calc_x_3 = (Button) findViewById(R.id.calc_button_x_3);
+        calc_button_seven = findViewById(R.id.calc_button_seven);
+        calc_button_eight = findViewById(R.id.calc_button_eight);
+        calc_button_nine = findViewById(R.id.calc_button_nine);
+        calc_button_multi = findViewById(R.id.calc_button_multi);
+        calc_button_x_3 = findViewById(R.id.calc_button_x_3);
 
-        final Button jc_calc_clear = (Button) findViewById(R.id.calc_button_clear);
-        final Button jc_calc_zero = (Button) findViewById(R.id.calc_button_zero);
-        final Button jc_calc_dot = (Button) findViewById(R.id.calc_button_dot);
-        final Button jc_calc_dev = (Button) findViewById(R.id.calc_button_dev);
-        final Button jc_calc_length = (Button) findViewById(R.id.calc_button_length);
+        calc_button_clear = findViewById(R.id.calc_button_clear);
+        calc_button_zero = findViewById(R.id.calc_button_zero);
+        calc_button_dot = findViewById(R.id.calc_button_dot);
+        calc_button_dev = findViewById(R.id.calc_button_dev);
+        calc_button_length = findViewById(R.id.calc_button_length);
 
-        final Button jc_calc_clear_all = (Button) findViewById(R.id.calc_button_clear_all);
-        final Button jc_calc_result = (Button) findViewById(R.id.calc_button_result);
-        final Button jc_calc_area = (Button) findViewById(R.id.calc_button_area);
+        calc_button_clear_all = findViewById(R.id.calc_button_clear_all);
+        calc_button_result = findViewById(R.id.calc_button_result);
+        calc_button_area = findViewById(R.id.calc_button_area);
 
-        final Button jc_calc_sin = (Button) findViewById(R.id.calc_button_sin);
-        final Button jc_calc_cos = (Button) findViewById(R.id.calc_button_cos);
-        final Button jc_calc_tg = (Button) findViewById(R.id.calc_button_tg);
-        final Button jc_calc_ctg = (Button) findViewById(R.id.calc_button_ctg);
-        final Button jc_calc_round4 = (Button) findViewById(R.id.calc_button_round4);
+        calc_button_sin = findViewById(R.id.calc_button_sin);
+        calc_button_cos = findViewById(R.id.calc_button_cos);
+        calc_button_tg = findViewById(R.id.calc_button_tg);
+        calc_button_ctg = findViewById(R.id.calc_button_ctg);
+        calc_button_round4 = findViewById(R.id.calc_button_round4);
 
-        final Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
-        //11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-        View.OnClickListener onClick_calc_one = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_1 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_1 + "1");
-                add_1 = "";
-            }
-        };
-        jc_calc_one.setOnClickListener(onClick_calc_one);
 
-        View.OnClickListener onClick_calc_two = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_2 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_2 + "2");
-                add_2 = "";
-            }
-        };
-        jc_calc_two.setOnClickListener(onClick_calc_two);
 
-        View.OnClickListener onClick_calc_three = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_3 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_3 + "3");
-                add_3 = "";
-            }
-        };
-        jc_calc_three.setOnClickListener(onClick_calc_three);
+        calc_button_one.setOnClickListener(this);
+        calc_button_two.setOnClickListener(this);
+        calc_button_three.setOnClickListener(this);
+        calc_button_plus.setOnClickListener(this);
+        calc_button_one_to_x.setOnClickListener(this);
 
+        calc_button_four.setOnClickListener(this);
+        calc_button_five.setOnClickListener(this);
+        calc_button_six.setOnClickListener(this);
+        calc_button_minus.setOnClickListener(this);
+        calc_button_x_2.setOnClickListener(this);
+
+        calc_button_seven.setOnClickListener(this);
+        calc_button_eight.setOnClickListener(this);
+        calc_button_nine.setOnClickListener(this);
+        calc_button_multi.setOnClickListener(this);
+        calc_button_x_3.setOnClickListener(this);
+
+        calc_button_clear.setOnClickListener(this);
+        calc_button_zero.setOnClickListener(this);
+        calc_button_dot.setOnClickListener(this);
+        calc_button_dev.setOnClickListener(this);
+        calc_button_length.setOnClickListener(this);
+
+        calc_button_clear_all.setOnClickListener(this);
+        calc_button_result.setOnClickListener(this);
+        calc_button_area.setOnClickListener(this);
+
+        calc_button_sin.setOnClickListener(this);
+        calc_button_cos.setOnClickListener(this);
+        calc_button_tg.setOnClickListener(this);
+        calc_button_ctg.setOnClickListener(this);
+        calc_button_round4.setOnClickListener(this);
+
+/*        //1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         View.OnClickListener onClick_calc_plus = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,39 +165,6 @@ public class PageCalc extends Activity {
         };
         jc_calc_one_to_x.setOnClickListener(onClick_calc_one_to_x);
         //22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
-        View.OnClickListener onClick_calc_four = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_4 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_4 + "4");
-                add_4 = "";
-            }
-        };
-        jc_calc_four.setOnClickListener(onClick_calc_four);
-
-        View.OnClickListener onClick_calc_five = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_5 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_5 + "5");
-                add_5 = "";
-            }
-        };
-        jc_calc_five.setOnClickListener(onClick_calc_five);
-
-        View.OnClickListener onClick_calc_six = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_6 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_6 + "6");
-                add_6 = "";
-            }
-        };
-        jc_calc_six.setOnClickListener(onClick_calc_six);
-
         View.OnClickListener onClick_calc_minus = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -192,39 +195,6 @@ public class PageCalc extends Activity {
         };
         jc_calc_x_2.setOnClickListener(onClick_calc_x_2);
         //33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
-        View.OnClickListener onClick_calc_seven = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_7 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_7 + "7");
-                add_7 = "";
-            }
-        };
-        jc_calc_seven.setOnClickListener(onClick_calc_seven);
-
-        View.OnClickListener onClick_calc_eight = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_8 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_8 + "8");
-                add_8 = "";
-            }
-        };
-        jc_calc_eight.setOnClickListener(onClick_calc_eight);
-
-        View.OnClickListener onClick_calc_nine = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_9 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_9 + "9");
-                add_9 = "";
-            }
-        };
-        jc_calc_nine.setOnClickListener(onClick_calc_nine);
-
         View.OnClickListener onClick_calc_multi = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,55 +225,6 @@ public class PageCalc extends Activity {
         };
         jc_calc_x_3.setOnClickListener(onClick_calc_x_3);
         //44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-        View.OnClickListener onClick_calc_clear = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_clear = String.valueOf(jc_calc_enter_text.getText());
-                int length_clear = add_clear.length();
-                if (length_clear==0){
-                new AlertWindow().createAlertWindow("Поле ввода очищено", "OK", PageCalc.this);
-                }else {
-                    add_clear = String.valueOf(add_clear.subSequence(0,length_clear-1));
-                    jc_calc_enter_text.setText(add_clear);
-                }
-                length_clear = 0;
-                add_clear = "";
-            }
-        };
-        jc_calc_clear.setOnClickListener(onClick_calc_clear);
-
-        View.OnClickListener onClick_calc_zero = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_0 = String.valueOf(jc_calc_enter_text.getText());
-                jc_calc_enter_text.setText(add_0 + "0");
-                add_0 = "";
-            }
-        };
-        jc_calc_zero.setOnClickListener(onClick_calc_zero);
-
-        View.OnClickListener onClick_calc_dot = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_dot = String.valueOf(jc_calc_enter_text.getText());
-                if (add_dot.length()==0){
-                    jc_calc_enter_text.setText("0.");
-                }else {
-                    if (add_dot.indexOf(".")>-1){
-                        new AlertWindow().createAlertWindow("Точка введена", "OK", PageCalc.this);
-                    }else {
-                        add_dot = String.valueOf(add_dot + ".");
-                        jc_calc_enter_text.setText(add_dot);
-                    }
-                }
-                add_dot = "";
-            }
-        };
-        jc_calc_dot.setOnClickListener(onClick_calc_dot);
-
         View.OnClickListener onClick_calc_dev = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -334,24 +255,6 @@ public class PageCalc extends Activity {
         };
         jc_calc_length.setOnClickListener(onClick_calc_length);
         //55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
-        View.OnClickListener onClick_calc_clear_all = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_clear_all = String.valueOf(jc_calc_enter_text.getText());
-                int length_clear_all = add_clear_all.length();
-                if (length_clear_all==0){
-                    new AlertWindow().createAlertWindow("Поле ввода очищено", "OK", PageCalc.this);
-                }else {
-                    jc_calc_enter_text.setText("0");
-                    deleteBuffer(jc_calc_buffer);
-                }
-                length_clear_all = 0;
-                add_clear_all = "";
-            }
-        };
-        jc_calc_clear_all.setOnClickListener(onClick_calc_clear_all);
-
         View.OnClickListener onClick_calc_result = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -518,55 +421,10 @@ public class PageCalc extends Activity {
         };
         jc_calc_ctg.setOnClickListener(onClick_calc_ctg);
 
-        View.OnClickListener onClick_calc_round4 = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(alpha);
-                String add_round4 = String.valueOf(jc_calc_enter_text.getText());
-                if (add_round4.length()==0){
-                    new AlertWindow().createAlertWindow("Введите значение", "OK", PageCalc.this);
-                }else {
-                    jc_calc_enter_text.setText(formatDouble4(Double.parseDouble(add_round4)));
-                }
-            }
-        };
-        jc_calc_round4.setOnClickListener(onClick_calc_round4);
-        //77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+        //77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777*/
     }
 
-    public void saveCache(String s) {
-        File cachefile = new File(getCacheDir(), "TBradis.cache");
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(cachefile,true);
-            fw.write(s + "\n");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if (fw != null) {
-                try {
-                    fw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public String getCurDate() {
-        DecimalFormat df = new DecimalFormat("00");
-        String str_current_date = String.valueOf(
-                df.format(new Date().getDate()) + "." +
-                df.format(new Date().getMonth()) + "." +
-                (new Date().getYear() + 1900) + " " +
-                df.format(new Date().getHours()) + ":" +
-                df.format(new Date().getMinutes()) + ":" +
-                df.format(new Date().getSeconds()));
-        return str_current_date;
-    }
-
+/*
     public String createRecord(String tmp_curdate,Double tmp_value1,String tmp_oper,Double tmp_value2,Double tmp_result){
        String str_result = "";
        if (tmp_oper.equals("+")){
@@ -599,25 +457,7 @@ public class PageCalc extends Activity {
            str_result = tmp_curdate + ": " + "Не корректная операция";
        }
         return  str_result;
-    }
-
-    public void deleteBuffer(String[] tmp_buffer){
-        for(int i=0;i<tmp_buffer.length;i++){
-            tmp_buffer[i] = "";
-        }
-    }
-
-    public String formatDouble(double tmp_double){
-        DecimalFormat df = new DecimalFormat("#########################.#########################");
-        return df.format(tmp_double);
-    }
-
-    public String formatDouble4(double tmp_double){
-        DecimalFormat df = new DecimalFormat("#########################.####");
-        return df.format(tmp_double);
-    }
-
-
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -639,8 +479,7 @@ public class PageCalc extends Activity {
             startActivity(intent);
         } else if (item.getItemId() == R.id.action_menu_bradis){
             ret = true;
-            //Toast.makeText(this, "ABOUT BRADIS", Toast.LENGTH_SHORT).show();
-            Uri uri = Uri.parse("https://ru.wikipedia.org/wiki/%D0%91%D1%80%D0%B0%D0%B4%D0%B8%D1%81,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9C%D0%BE%D0%B4%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%B8%D1%87");
+            Uri uri = Uri.parse(String.valueOf(R.string.link_bradis));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
         } else {
@@ -648,6 +487,91 @@ public class PageCalc extends Activity {
         }
         return ret;
     }
+
+    public void onClickButtonNumber(View view, String number, TextView textView){
+        view.startAnimation(alpha);
+        textView.setText(textView.getText() + number);
+    }
+
+    public void onClickButtonStrFunction(View view, String function, TextView textView){
+        view.startAnimation(alpha);
+        if (function.equals(String.valueOf(R.string.label_clear))) {
+            textView.setText(textView.getText().subSequence(0, textView.getText().length() - 1));
+        }else if (function.equals(String.valueOf(R.string.label_clear_all))){
+            textView.setText("0");
+            Toast.makeText(this, R.string.alert_clear, Toast.LENGTH_SHORT).show();
+        }else if (function.equals(String.valueOf(R.string.label_dot))){
+            if (textView.getText().length()==0){
+                textView.setText("0.");
+            }else {
+                if (textView.getText().toString().indexOf(".")>-1){
+                    Toast.makeText(this, R.string.alert_dot, Toast.LENGTH_SHORT).show();
+                }else {
+                    textView.setText(textView.getText() + ".");
+                }
+            }
+        }else if (function.equals(String.valueOf(R.string.label_round4))){
+            if (textView.getText().length()==0){
+                Toast.makeText(this, R.string.alert_enter, Toast.LENGTH_SHORT).show();
+            }else {
+                textView.setText(new Format().formatDouble4(Double.parseDouble(String.valueOf(textView.getText()))));
+            }
+            textView.setText(textView.getText());
+        }else{}
+    }
+
+    @Override
+    public void onClick(View view){
+        switch(view.getId()){
+            case R.id.calc_button_one:
+                onClickButtonNumber(view,"1",textView);
+                break;
+            case R.id.calc_button_two:
+                onClickButtonNumber(view,"2",textView);
+                break;
+            case R.id.calc_button_three:
+                onClickButtonNumber(view,"3",textView);
+                break;
+            case R.id.calc_button_four:
+                onClickButtonNumber(view,"4",textView);
+                break;
+            case R.id.calc_button_five:
+                onClickButtonNumber(view,"5",textView);
+                break;
+            case R.id.calc_button_six:
+                onClickButtonNumber(view,"6",textView);
+                break;
+            case R.id.calc_button_seven:
+                onClickButtonNumber(view,"7",textView);
+                break;
+            case R.id.calc_button_eight:
+                onClickButtonNumber(view,"8",textView);
+                break;
+            case R.id.calc_button_nine:
+                onClickButtonNumber(view,"9",textView);
+                break;
+            case R.id.calc_button_zero:
+                onClickButtonNumber(view,"0",textView);
+                break;
+            case R.id.calc_button_clear:
+                onClickButtonStrFunction(view,String.valueOf(R.string.label_clear),textView);
+                break;
+            case R.id.calc_button_clear_all:
+                onClickButtonStrFunction(view,String.valueOf(R.string.label_clear_all),textView);
+                break;
+            case R.id.calc_button_dot:
+                onClickButtonStrFunction(view,String.valueOf(R.string.label_dot),textView);
+                break;
+            case R.id.calc_button_round4:
+                onClickButtonStrFunction(view,String.valueOf(R.string.label_round4),textView);
+                break;
+/*
+            case R.id.calc_button_:
+
+                break;
+*/
+            default:
+                break;
+        }
+    }
 }
-
-

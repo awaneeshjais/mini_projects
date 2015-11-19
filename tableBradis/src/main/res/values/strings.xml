@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Таблицы Брадиса</string>
     <string name="ic_launcher">ic_launcher</string>
+    <string name="name_file_cache">TBradis.cache</string>
     <string name="menu_calc">Калькулятор Брадиса</string>
     <string name="menu_history">История расcчетов</string>
     <string name="menu_bradis">О Брадисе</string>
@@ -41,8 +42,9 @@
     <string name="label_nine">9</string>
 
     <string name="alert_name_button">OK</string>
-    <string name="alert_dot">Точка уже введена</string>
-    <string name="alert_clear">Поле ввода уже очищено</string>
+    <string name="alert_dot">Точка введена</string>
+    <string name="alert_clear">Поле ввода очищено</string>
+    <string name="alert_enter">Введите значение</string>
 
     <string name="alert_yes">Да</string>
     <string name="alert_no">Нет</string>
