@@ -10,7 +10,8 @@
 |6.|scripts|VBA|*.xls|finished|
 |7.|tableBradis|Java|andriod|finished|
 |8.|testAndroid_e-legion.ru|Java|console|finished|
-|9.|ticketOffice|Java|web|in action|
+|9.|ticketOffice|Java|web|frozen|
+|10.|workingHours|Java|andriod|in action|
 
 
 
@@ -194,5 +195,20 @@ Web-apps: online-ticketWindow for network cinemas.
 **RUS**
 
 Web-приложение: онлайн-касса для сети кинотеатров.
+
+
+
+***
+## 10. Working Hours
+
+**ENG**
+
+Android-apps: help users "keep in mind" working hours a lot of stores, markets etc
+
+**RUS**
+
+Android-приложение: помогает пользователю запоминать рабочее время магазинов, маркетов и т. д.
+
+
 
 [Help for me.)](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
