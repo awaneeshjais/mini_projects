@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Set AppCompat’s actionBarStyle -->
+        <item name="android:actionBarStyle">@style/AppActionBar</item>
+
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/yellow</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="AppActionBar"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/blue</item>
+    </style>
+
+
+</resources>

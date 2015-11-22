@@ -1,0 +1,18 @@
+<resources>
+
+    <color name="black_overlay">#000000</color>
+    <color name="splash_color_text">#FFE47E</color>
+    <color name="splash_color_background">#02A8F3</color>
+    <!--<color name=""></color>-->
+
+    <color name="blue">#02A8F3</color>
+    <color name="yellow">#FFE47E</color>
+    <color name="red">#E81D62</color>
+    <color name="green">#25A599</color>
+    <color name="gray">#BCBCBC</color>
+    <color name="white">#ffffff</color>
+
+    <color name="primary">#02A8F3</color>
+    <color name="primary_pressed">#25A599</color>
+    <color name="ripple">#02A8F3</color>
+</resources>
