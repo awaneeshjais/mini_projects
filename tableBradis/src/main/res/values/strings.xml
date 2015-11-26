@@ -45,6 +45,9 @@
     <string name="alert_dot">Точка введена</string>
     <string name="alert_clear">Поле ввода очищено</string>
     <string name="alert_enter">Введите значение</string>
+    <string name="alert_enter_operation">Введите операцию</string>
+    <string name="alert_non_correct">Не корректная операция</string>
+    <string name="alert_div_zero">На 0 делить запрещено</string>
 
     <string name="alert_yes">Да</string>
     <string name="alert_no">Нет</string>

@@ -13,21 +13,22 @@
         android:icon="@mipmap/fx_top_page"
         android:label="@string/app_name">
         <activity android:name=".PageCalc"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
         <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        </intent-filter>
         </activity>
 
         <activity
                 android:name="com.op.tablebradis.PageHistory"
                 android:label="@string/app_name"
+                android:screenOrientation="portrait"
                 android:parentActivityName="com.op.tablebradis.PageCalc" >
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.op.tablebradis.PageCalc" />
         </activity>
     </application>
-
 </manifest>

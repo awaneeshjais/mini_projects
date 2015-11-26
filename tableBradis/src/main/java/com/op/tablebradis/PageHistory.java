@@ -14,10 +14,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-import com.op.tablebradis.help.Cache;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class PageHistory extends Activity{
-    Cache cache = new Cache();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +34,7 @@ public class PageHistory extends Activity{
         final Button jcHistoryButton = (Button) findViewById(R.id.history_button_erase_history);
         final Animation alpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
-        jcHistoryText.setText(cache.readCache());
+        jcHistoryText.setText(readCache());
 
         jcHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +52,7 @@ public class PageHistory extends Activity{
                 builder.setPositiveButton(R.string.alert_yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                cache.deleteCache();
+                                deleteCache();
                                 jcHistoryText.setText(" ");
                             }
                         });
@@ -58,31 +64,61 @@ public class PageHistory extends Activity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        boolean ret;
-        if (item.getItemId() == R.id.action_menu_calc) {
-            ret = true;
-            Intent intent = new Intent(this, PageCalc.class);
-            startActivity(intent);
-        } else if (item.getItemId() == R.id.action_menu_history){
-            ret = true;
-            Intent intent = new Intent(this, PageHistory.class);
-            startActivity(intent);
-        } else if (item.getItemId() == R.id.action_menu_bradis){
-            ret = true;
-            Uri uri = Uri.parse(String.valueOf(R.string.link_bradis));
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-        } else {
-            ret = super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.action_menu_calc:
+                Intent intent = new Intent(this, PageCalc.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_menu_history:
+                Intent intentHistory = new Intent(this, PageHistory.class);
+                startActivity(intentHistory);
+                return true;
+            case R.id.action_menu_bradis:
+                Uri uri = Uri.parse(getString(R.string.link_bradis));
+                Intent intentBrowser = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intentBrowser);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return ret;
+    }
+
+    public String readCache() {
+        List list = new ArrayList();
+        String str_cache = " ";
+        File cachefile = new File(this.getCacheDir(), String.valueOf(R.string.name_file_cache));
+        try {
+            Scanner in = new Scanner(new FileReader(cachefile));
+            while (in.hasNextLine()) {
+                list.add(in.nextLine());
+            }
+            for (int i = 0; i<list.size();i++){
+                str_cache = list.get(i) + "\n" + str_cache;
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+        }
+        return str_cache;
+    }
+
+    public void deleteCache(){
+        File cachefile = new File(this.getCacheDir(), String.valueOf(R.string.name_file_cache));
+        try {
+            cachefile.delete();
+            cachefile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
