@@ -10,8 +10,9 @@
 |6.|scripts|VBA|*.xls|finished|
 |7.|tableBradis|Java|andriod|finished|
 |8.|testAndroid_e-legion.ru|Java|console|finished|
-|9.|ticketOffice|Java|web|frozen|
-|10.|workingHours|Java|andriod|in action|
+|9.|testComparorImg|Java|console|finished|
+|10.|ticketOffice|Java|web|frozen|
+|11.|workingHours|Java|andriod|in action|
 
 
 
@@ -186,7 +187,20 @@ Console-apps: count area of overlapping rectangles (two opposite coordinates of 
 
 
 ***
-## 9. ticketOffice
+## 9. testComparorImg
+
+**ENG**
+
+Jar-file (script) which compare two grafical files and displays the difference between files. Detailed test conditions in the file ImageComparisonRequirements.pdf.
+
+**RUS**
+
+Jar-файл (скрипт), который сравнивает подобные графические файлы и выводит разницу между ними. Детальные условия теста в файле 2015-ImageComparisonRequirements.pdf.
+
+
+
+***
+## 10. ticketOffice
 
 **ENG**
 
@@ -199,7 +213,7 @@ Web-приложение: онлайн-касса для сети кинотеа
 
 
 ***
-## 10. Working Hours
+## 11. Working Hours
 
 **ENG**
 
