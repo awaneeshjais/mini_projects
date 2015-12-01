@@ -1,4 +1,4 @@
-## 8. testAndroid_e-legion.ru
+## testAndroid_e-legion.ru
 
 **ENG**
 

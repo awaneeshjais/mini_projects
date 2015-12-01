@@ -1,4 +1,4 @@
-## 9. testComparorImg
+## testComparorImg
 
 **ENG**
 
