@@ -6,4 +6,4 @@ Jar-file (script) which compare two grafical files and displays the difference b
 
 **RUS**
 
-Jar-файл (скрипт), который сравнивает подобные графические файлы и выводит разницу между ними. Детальные условия теста в файле 2015-ImageComparisonRequirements.pdf.
+Jar-файл (скрипт), который сравнивает подобные графические файлы и выводит разницу между ними. Детальные условия теста в файле ImageComparisonRequirements.pdf.
