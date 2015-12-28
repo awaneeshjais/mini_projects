@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="hello" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Start service [SIMPLE BANK]!"/>
+   </bean>
+   <bean id="choice_lang" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Please, choice language [ENG,RUS,UAH]:"/>
+   </bean>
+      <bean id="choice_type" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Please, choice type operation [1. Create CREDIT, 2. Refill CREDIT]:"/>
+   </bean>
+   <bean id="not_correct_format" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Sorry, but you enter non-correct format! Please, try again!"/>
+   </bean>
+   <bean id="data_save" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="All data saved!"/>
+   </bean>   
+   <bean id="create_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Create credit [NUMBER_CREDIT(NNNN) SUMMA(NNNNNNN) COUNT_MOUNTH(MM) PERCENT(0.XX) TYPE_CREDIT(ANN/DEC)]:"/>
+   </bean>
+   <bean id="is_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Sorry, but credit this SAME NUMBER is created yet!"/>
+   </bean>
+   <bean id="no_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Sorry, but credit this SAME NUMBER is no!"/>
+   </bean>
+   <bean id="refill_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Refill credit [NUMBER_CREDIT(NNNN) TYPE_CREDIT(ANN/DEC)]:"/>
+   </bean>
+   <bean id="summa_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Summa payment:"/>
+   </bean>
+   <bean id="some_else" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Do you want something else? [Y/N]"/>
+   </bean>
+   <bean id="good_bay" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="End service [SIMPLE BANK]!"/>
+   </bean>
+</beans>

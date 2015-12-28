@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+ 
+ <hibernate-mapping>  
+  <class name="com.simplebank.db.Credit" table="credit">  
+    <id name="id" type="int" column="id"><generator class="native"/></id>
+	<property name="creditNumber"></property>
+	<property name="summaCredit"></property>
+	<property name="timeCredit"></property>
+	<property name="percentCredit"></property>
+	<property name="typeOfCredit"></property>
+	<property name="balanceTime"></property>
+	<property name="balanceBody"></property>
+	<property name="balancePercent"></property>
+  </class>  
+ </hibernate-mapping>  

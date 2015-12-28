@@ -11,8 +11,9 @@
 |7.|tableBradis|Java|andriod|finished|
 |8.|testAndroid_e-legion.ru|Java|console|finished|
 |9.|testComparorImg|Java|console|finished|
-|10.|ticketOffice|Java|web|frozen|
-|11.|workingHours|Java|andriod|in action|
+|10.|testSimpleBank|Java|console|finished|
+|11.|ticketOffice|Java|web|frozen|
+|12.|workingHours|Java|andriod|in action|
 
 
 
@@ -200,7 +201,20 @@ Jar-файл (скрипт), который сравнивает подобны�
 
 
 ***
-## 10. ticketOffice
+## 10. testSimpleBank
+
+**ENG**
+
+Console-apps: this is primitive architecture of simple bank (create credit annuity/classic, transaction payment, calculate current fill). Detailed test conditions in the file simpleBank.png. Non-correct realization of Spring IoC.
+
+**RUS**
+
+Консольное приложение: примитивная архитектура работы обычного банка (создание кредита аннуитет/классика, проведение платежа, просчёт текущего платежа). Детальные условия теста в файле simpleBank.png. Не корректная реализация Spring IoC.
+
+
+
+***
+## 11. ticketOffice
 
 **ENG**
 
@@ -213,7 +227,7 @@ Web-приложение: онлайн-касса для сети кинотеа
 
 
 ***
-## 11. Working Hours
+## 12. Working Hours
 
 **ENG**
 

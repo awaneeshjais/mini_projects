@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="hello" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Запуск сервиса [SIMPLE BANK]!"/>
+   </bean>
+   <bean id="choice_lang" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Пожалуйста, выберите язык [ENG,RUS,UAH]:"/>
+   </bean>
+      <bean id="choice_type" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Пожалуйста, выберить  тип операции [1. Создать КРЕДИТ, 2. Пополнить КРЕДИТ]:"/>
+   </bean>
+   <bean id="not_correct_format" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Извините, но Вы ввели данные не корректного формата! Попробуйте ещё!"/>
+   </bean>
+   <bean id="data_save" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Все данные сохранены!"/>
+   </bean>   
+   <bean id="create_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Создать кредит [НОМЕР_ДОГОВОРА(NNNN) СУММА(NNNNNNN) КОЛИЧЕСТВО_МЕСЯЦЕВ(MM) ПРОЦЕНТ(0.XX) ТИП_КРЕДИТА(ANN/DEC)]:"/>
+   </bean>
+   <bean id="is_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Извините, но кредит с АНАЛОГИЧНЫМ НОМЕРОМ уже создан!"/>
+   </bean>
+   <bean id="no_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Извините, но кредита с ТАКИМ НОМЕРОМ не существует!"/>
+   </bean>
+   <bean id="refill_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Пополнить кредит [НОМЕР_ДОГОВОРА(NNNN) ТИП_КРЕДИТА(ANN/DEC)]:"/>
+   </bean>
+      <bean id="summa_credit" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Сумма оплаты:"/>
+   </bean>   
+   <bean id="some_else" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Хотите что-то ещё? [Y/N]"/>
+   </bean>
+   <bean id="good_bay" class="com.simplebank.businesslogic.Messenger">
+      <property name="message" value="Конец работы сервиса [SIMPLE BANK]!"/>
+   </bean>
+
+</beans>
