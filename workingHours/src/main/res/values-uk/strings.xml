@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Work-hours sticks</string>
+
+    <string name="splash_emblem">WHS</string>
+    <string name="splash_title">Work-hours sticks</string>
+    <string name="splash_content">Цей додаток запамятає робочий час улюблених магазинів ЗАВЖДИ!</string>
+    <string name="splash_content_db1">Ми допомогли Вам запамятати</string>
+    <string name="splash_content_db2">стікер(ів) вже!</string>
+
+    <string name="title_activity_main">WHS</string>
+    <string name="title_activity_add">WHS Додати</string>
+    <string name="title_activity_set">WHS Налаштування</string>
+    <string name="title_activity_about">WHS Про додаток</string>
+
+    <!--<string name="text_same">Maps Maps Maps</string>-->
+    <string name="activity_set_button_gps_e">Увімкнути мобільний GPS</string>
+    <string name="activity_set_button_gps_d">Вимкнути мобільний GPS</string>
+    <string name="activity_set_button_wifi_e">Увімкнути Wi-Fi GPS</string>
+    <string name="activity_set_button_wifi_d">Вимкнути Wi-Fi GPS</string>
+
+    <string name="marker_curr_location_title">Я тут</string>
+    <string name="marker_curr_location_snippet">тест тест тест тест тест</string>
+
+    <string name="button_save_store">Зберегти</string>
+    <string name="switch_day_night">Цілодобово</string>
+    <string name="adapter_store">Магазин:</string>
+    <string name="adapter_phone">Телефон:</string>
+    <string name="adapter_address">Адреса:</string>
+    <string name="toast_ok">Ок-ок!</string>
+    <string name="toast_ops">Ой-ой!</string>
+    <string name="hint_address">адреса</string>
+    <string name="hint_phone">телефон</string>
+    <string name="hint_store">назва магазину</string>
+    <string name="day_1">Пон</string>
+    <string name="day_2">Вів</string>
+    <string name="day_3">Сер</string>
+    <string name="day_4">Чет</string>
+    <string name="day_5">Пят</string>
+    <string name="day_6">Суб</string>
+    <string name="day_7">Нед</string>
+    <string name="dialog_button_del">Видалити</string>
+    <string name="dialog_button_edit">Редагувати</string>
+    <string name="dialog_button_ok">ОК</string>
+    <string name="dialog_inner_delete">Ви дійсно бажаєте видалити магазин:</string>
+    <string name="dialog_yes">Так</string>
+    <string name="dialog_no">Ні</string>
+    <string name="toast_saved">збережений!</string>
+    <string name="day_from">з</string>
+    <string name="day_to">до</string>
+    <string name="day_rest">вихідний</string>
+</resources>

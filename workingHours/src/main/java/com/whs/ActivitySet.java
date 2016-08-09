@@ -6,13 +6,14 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ActivitySet extends ActionBarActivity implements OnClickListener {
-
+public class ActivitySet extends AppCompatActivity implements OnClickListener {
     Button buttonGps;
     Button buttonWifi;
     LocationManager locationManager;
@@ -21,7 +22,6 @@ public class ActivitySet extends ActionBarActivity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         buttonGps = (Button) findViewById(R.id.buttonGps);
         buttonWifi = (Button) findViewById(R.id.buttonWifi);
@@ -30,16 +30,28 @@ public class ActivitySet extends ActionBarActivity implements OnClickListener {
         buttonWifi.setOnClickListener(this);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER
+                , Preferences.getTimeRefreshServices()
+                , Preferences.getDistanceRefreshServices()
+                , locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER
+                , Preferences.getTimeRefreshServices()
+                , Preferences.getDistanceRefreshServices()
+                , locationListener);
         checkServicesEnabled();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000 * Preferences.getTimeRefreshServices()
-                , Preferences.getDistanceRefreshServices(), locationListener);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000 * Preferences.getTimeRefreshServices()
-                , Preferences.getDistanceRefreshServices(), locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER
+                , Preferences.getTimeRefreshServices()
+                , Preferences.getDistanceRefreshServices()
+                , locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER
+                , Preferences.getTimeRefreshServices()
+                , Preferences.getDistanceRefreshServices()
+                , locationListener);
         checkServicesEnabled();
     }
 
@@ -53,6 +65,8 @@ public class ActivitySet extends ActionBarActivity implements OnClickListener {
 
         @Override
         public void onLocationChanged(Location location) {
+            Preferences.setLatitude(getApplication(),(float)location.getLatitude());
+            Preferences.setLongitude(getApplication(),(float)location.getLongitude());
             checkServicesEnabled();
         }
 

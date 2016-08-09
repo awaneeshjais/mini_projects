@@ -1,10 +1,10 @@
 package com.whs;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,20 +13,30 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.melnykov.fab.FloatingActionButton;
+import com.whs.model.Store;
+import com.whs.model.StoreRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
+import io.realm.RealmResults;
 
-public class ActivityMain extends ActionBarActivity implements OnMapReadyCallback {
-    MapFragment mapFragment;
-    GoogleMap myMap;
-    Location location;
-    LocationManager locationManager;
+public class ActivityMain extends AppCompatActivity implements OnMapReadyCallback
+                                                            , GoogleMap.OnMapClickListener
+                                                            , AdapterView.OnItemClickListener{
+    ArrayList<HashMap<String,String>> alStore;
+    SupportMapFragment mapFragment;
+    GoogleMap map;
     ListView listView;
-    ArrayList<HashMap<String,String>> arrayList;
+    FloatingActionButton fab;
+    RealmResults<Store> rrStore;
+    MarkerOptions marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +44,25 @@ public class ActivityMain extends ActionBarActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         listView = (ListView) findViewById(R.id.listView);
-
-        arrayList = new ArrayList<HashMap<String,String>>();
+        alStore = new ArrayList<HashMap<String, String>>();
         SimpleAdapter adapter = new SimpleAdapter(
                 this,
-                arrayList,
+                alStore,
                 R.layout.list_item,
-                new String[] {Preferences.getStoreName(), Preferences.getStoreTime()},
-                new int[] {R.id.item_title,R.id.item_description}
-
+                new String[]{"s", "p+a"},
+                new int[]{R.id.item_name, R.id.item_description}
         );
-        populateList();
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
 
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+        map = mapFragment.getMap();
+        populateStoreList();
+        map.setOnMapClickListener(this);
+        marker = new MarkerOptions();
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.attachToListView(listView);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.show();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,46 +72,53 @@ public class ActivityMain extends ActionBarActivity implements OnMapReadyCallbac
                 finish();
             }
         });
+    }
 
 
+        //handleIntent(getIntent());
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), getString(position), Toast.LENGTH_SHORT).show();
-            }
-        });
+    /*@Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }*/
 
-
-
-        if (1 == 1) {//check internet connection+Wifi+GPS
-            mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-            myMap = mapFragment.getMap();
-
-        } else {
+    public void populateStoreList() {
+        HashMap<String,String> tempStore;
+        StoreRepository storeRepository = new StoreRepository();
+        rrStore = storeRepository.getStoreAll();
+        for (int i = 0; i < rrStore.size(); i++) {
+            tempStore = new HashMap<String, String>();
+            tempStore.put("s", getString(R.string.adapter_store) + rrStore.get(i).getName());
+            tempStore.put("p+a", getString(R.string.adapter_phone) + rrStore.get(i).getPhone()
+                        + ", " + getString(R.string.adapter_address) + rrStore.get(i).getAddress());
+            alStore.add(tempStore);
         }
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+
+        // Associate searchable configuration with the SearchView
+        /*SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        searchView.setSearchableInfo(searchManager
+                .getSearchableInfo(getComponentName()));
+        return super.onCreateOptionsMenu(menu);*/
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                //http://novoda.com/blog/styling-the-actionbar-searchview/
+                Toast.makeText(ActivityMain.this, "NON-WORK", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_location:
-                LatLng latLng = new LatLng(Preferences.getLatitude(this), Preferences.getLongitude(this));
-                myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-                myMap.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.marker_curr_location_title)));
+                LatLng latLngMenu = new LatLng(Preferences.getLatitude(this)
+                                             , Preferences.getLongitude(this));
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngMenu, 16));
                 return true;
             case R.id.action_settings:
                 Intent intentSet = new Intent(this, ActivitySet.class);
@@ -116,45 +135,77 @@ public class ActivityMain extends ActionBarActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap map) {
-        LatLng currLoc = new LatLng(Preferences.getLatitude(this), Preferences.getLongitude(this));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(currLoc, 16));
-        //http://startandroid.ru/ru/uroki/vse-uroki-spiskom/291-urok-138-opredelenie-mestopolozhenija-gps-koordinaty.html
-        /*map.addMarker(new MarkerOptions().position(currLoc)
-                .title("I am there")
-                .snippet("test test test test test test test test!")
-        );*/
+        StoreRepository storeRepository = new StoreRepository();
+        RealmResults<Store> r = storeRepository.getStoreAll();
+        for (int i = 0; i < r.size(); i++) {
+            map.addMarker(new MarkerOptions()
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_store))
+                    .anchor(0.0f, 1.0f) // Anchors the marker on the bottom left
+                    .position(new LatLng(r.get(i).getLatitude(),r.get(i).getLongitude()))
+                    .title(r.get(i).getName()));
+        }
+        LatLng latLngNow = new LatLng(Preferences.getLatitude(this)
+                                    , Preferences.getLongitude(this));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngNow, 12));
+        map.getUiSettings().setZoomControlsEnabled(true);
     }
 
 
-
-    /*public void showLocation(Location location) {
-        if (location == null)
-            return;
-        if (location.getProvider().equals(LocationManager.GPS_PROVIDER)) {
-            Preferences.setLatitude(this, (float) location.getLatitude());
-            Preferences.setLongitude(this, (float) location.getLongitude());
-            textCurrentLocation.setText(formatLocation(location));
-        } else if (location.getProvider().equals(LocationManager.NETWORK_PROVIDER)) {
-            Preferences.setLatitude(this, (float) location.getLatitude());
-            Preferences.setLongitude(this,(float) location.getLongitude());
-            textCurrentLocation.setText(formatLocation(location));
-        }
+    @Override
+    public void onMapClick(LatLng latLng) {
+        Preferences.setStoreLatitude(getApplication(),(float)latLng.latitude);
+        Preferences.setStoreLongitude(getApplication(),(float)latLng.longitude);
+        LatLng latLngClick = new LatLng(Preferences.getStoreLatitude(this)
+                                      , Preferences.getStoreLongitude(this));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngClick, 16));
+        map.addMarker(marker.position(latLngClick));
     }
 
-    public String formatLocation(Location location) {
-        if (location == null)
-            return "...";
-        return String.format(
-                "Latitude = %1$.8f, Longitude = %2$.8f",location.getLatitude(), location.getLongitude());
-    }*/
+    @Override
+    public void onItemClick (AdapterView<?> parent, View view, final int position, long id) {
+        LatLng latLngItemClick = new LatLng(rrStore.get(position).getLatitude()
+                                          , rrStore.get(position).getLongitude());
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngItemClick, 16));
 
-    public void populateList() {
-        HashMap<String,String> temp;
-        for (int i = 0; i<25;i++){
-            temp = new HashMap<String, String>();
-            temp.put(Preferences.getStoreName(), "Store " + i);
-            temp.put(Preferences.getStoreTime(), "200.00$ + time " + i*100);
-            arrayList.add(temp);
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setPositiveButton(R.string.dialog_button_ok
+                                      , new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                }
+            });
+            builder.setNegativeButton(R.string.dialog_button_del, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    String currentId = rrStore.get(position).getId();
+                    StoreRepository storeRepository = new StoreRepository();
+                    storeRepository.deleteStoreById(currentId);
+                    Toast.makeText(ActivityMain.this
+                                 , "Store " + currentId + " is deleted!"
+                                 , Toast.LENGTH_SHORT).show();
+                    Intent intentMain = new Intent(getApplicationContext(), ActivityMain.class);
+                    startActivity(intentMain);
+                }
+            });
+            builder.setNeutralButton(R.string.dialog_button_edit, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intentAdd = new Intent(getApplicationContext(), ActivityAdd.class);
+                    String currentId = rrStore.get(position).getId();
+                    intentAdd.putExtra(Preferences.getIntentExtra(),currentId);
+                    startActivity(intentAdd);
+                }
+            });
+        builder.setTitle(getString(R.string.adapter_store)
+                         + " "
+                         + rrStore.get(position).getName());
+        builder.setMessage(getString(R.string.adapter_phone)
+                           + " "
+                           + rrStore.get(position).getPhone()
+                           + "\n"
+                           + getString(R.string.adapter_address)
+                           + " "
+                           + rrStore.get(position).getAddress()
+                           + "\n"
+                           + "...");
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

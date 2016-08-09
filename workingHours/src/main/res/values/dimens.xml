@@ -5,4 +5,6 @@
     <dimen name="activity_margin3">3dp</dimen>
     <dimen name="activity_margin1">1dp</dimen>
     <dimen name="activity_padding_button">10dp</dimen>
+
+    <dimen name="padding_day_seek_bar">5dp</dimen>
 </resources>

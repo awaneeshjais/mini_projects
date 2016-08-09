@@ -15,4 +15,7 @@
     <color name="primary">#02A8F3</color>
     <color name="primary_pressed">#25A599</color>
     <color name="ripple">#02A8F3</color>
+
+    <color name="marker_stroke">#0230f3</color>
+    <color name="marker_fill">#02A8F3</color>
 </resources>
